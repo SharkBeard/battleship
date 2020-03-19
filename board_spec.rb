@@ -20,5 +20,15 @@ RSpec.describe Board, '#new' do
       expect(board.size).to eq(10)
     end
   end
+end
 
+RSpec.describe Board, '#fire' do
+  context 'when taking a shot' do
+    let(:board) { Board.new }
+
+    it 'stores shots' do
+      board.fire(3, 2)
+      expect(board.shots).to include([3, 2])
+    end
+  end
 end
