@@ -12,6 +12,12 @@ class Ship
   end
 
   def size
+    @size ||= calculate_size
+  end
+
+  private
+
+  def calculate_size
     case @type
     when CARRIER then 5
     when BATTLESHIP then 4
