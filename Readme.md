@@ -16,10 +16,16 @@ This is the start of a library for a battleship game. It should be agnostic enou
 * Update `Board#place` so it raises exceptions if it is overlapping another ship or off of the board. 
   * Use `Board#location_valid?` and `Ship#cells` to help.
 * Update `Board#fire` to check for ships and use `Ship#hit`.
+* Have a way of displaying a board to the player
 * Add main game loop
   * Implement a way to accept input or to simulate input.
   * Handle turns
   * Create a board for each player
+  * Report messages back to the player
+    * on hit
+    * on sink
+    * on miss
+    * on invalid input
 
 ## Contributing
 
