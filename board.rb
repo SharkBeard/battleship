@@ -7,12 +7,21 @@ class Board
     @safe_range = 0...size
   end
   
-  def fire(x, y)
-    [x, y].each do |var|
+  def fire(coords)
+    raise ArgumentError.new('already shot at the space') if @shots.include?(coords)
+
+    @shots << coords if location_valid?(coords)
+  end
+
+  def place(ship:, location:, direction:)
+    @ships << ship
+  end
+
+  private
+  def location_valid?(coords)
+    coords.each do |var|
       raise ArgumentError.new('outside of board') if @safe_range.none?(var)
     end
-    raise ArgumentError.new('already shot at the space') if @shots.include?([x, y])
-      
-    @shots << [x, y]
+    true
   end
 end
