@@ -1,9 +1,10 @@
 class Board
-  attr_accessor :size, :shots
+  attr_accessor :size, :shots, :ships
 
   def initialize(size: 10)
     @size = size
     @shots = Array.new
+    @ships = Array.new
     @safe_range = 0...size
   end
   

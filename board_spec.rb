@@ -48,8 +48,28 @@ RSpec.describe Board, '#fire' do
     end
 
     it 'throws an exception if shooting the same place twice' do
-      board.fire(1, 1)
-      expect { board.fire(1, 1) }.to raise_exception('already shot at the space')
+      board.fire([1, 1])
+      expect { board.fire([1, 1]) }.to raise_exception('already shot at the space')
+    end
+  end
+end
+
+RSpec.describe Board, '#place' do
+  let(:board) { Board.new }
+  let(:battleship) { Ship.new(type: Ship::BATTLESHIP) }
+
+  context('when placing a ship horizontally') do
+    it 'adds a ship to the board' do
+      board.place(ship: battleship, location: [0, 1], direction: :horizontal)
+      expect(board.ships.count).to eq(1)
+    end
+
+    xit 'raises an exception if out of range' do
+    end
+
+    xit 'adds a ship at the specified cell' do
+      board.place(ship: battleship, location: [0, 1], direction: :horizontal)
+      expect(board.fire()).to eq(:hit)
     end
   end
 end
