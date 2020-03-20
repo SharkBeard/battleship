@@ -43,11 +43,15 @@ end
 RSpec.describe Ship, '#status' do
   let(:battleship) { Ship.new(type: Ship::BATTLESHIP, x: 1, y: 2, direction: :vertical) }
 
+  context 'when a ship is first created' do
+    it 'has a status of pristine' do
+      expect(battleship.status).to eq(:pristine)
+    end
+  end
+
   context 'when a battleship is hit 4 times' do
     it 'has a status of destroyed' do
-      4.times do
-        battleship.hit
-      end
+      4.times { battleship.hit }
       expect(battleship.status).to eq(:destroyed)
     end
   end
