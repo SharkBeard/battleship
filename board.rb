@@ -14,7 +14,7 @@ class Board
     @shots << coords if location_valid?(coords)
   end
 
-  def place(ship:, location:, direction:)
+  def place(ship:)
     @ships << ship
   end
 

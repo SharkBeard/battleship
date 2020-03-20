@@ -60,7 +60,7 @@ RSpec.describe Board, '#place' do
 
   context('when placing a ship horizontally') do
     it 'adds a ship to the board' do
-      board.place(ship: battleship, location: [0, 1], direction: :horizontal)
+      board.place(ship: battleship)
       expect(board.ships.count).to eq(1)
     end
 
